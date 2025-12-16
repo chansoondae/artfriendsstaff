@@ -43,6 +43,11 @@ export default function Home() {
     setIsLoading(false);
   };
 
+  const refreshOpinions = async () => {
+    // 로딩 스피너 없이 조용히 데이터만 갱신
+    await fetchOpinions();
+  };
+
   useEffect(() => {
     loadData();
   }, []);
@@ -61,7 +66,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto">
           <h1 className="text-2xl sm:text-3xl font-bold mb-2 flex items-center gap-2">
             <span>🎨</span>
-            <span>스탭 선발 의견 수렴</span>
+            <span>아프 스탭 선발 의견 수렴</span>
           </h1>
           <p className="text-primary-pale text-sm sm:text-base">
             여러분의 생각을 들려주세요
@@ -85,7 +90,7 @@ export default function Home() {
             <div className="animate-spin rounded-full h-12 w-12 border-4 border-primary border-t-transparent" />
           </div>
         ) : (
-          <OpinionList opinions={opinions} onOpinionsUpdate={loadData} />
+          <OpinionList opinions={opinions} onOpinionsUpdate={refreshOpinions} />
         )}
       </div>
 

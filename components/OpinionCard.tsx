@@ -45,7 +45,7 @@ export default function OpinionCard({
   return (
     <div className="bg-white rounded-2xl p-4 sm:p-5 border-l-4 border-primary shadow-sm hover:shadow-md transition-shadow duration-200">
       <div className="flex items-center gap-2 mb-3">
-        <span className="text-sm font-medium text-text-primary">
+        <span className="text-base font-bold text-text-primary">
           {opinion.nickname}
         </span>
         <span className="text-xs text-text-secondary">
