@@ -88,24 +88,24 @@ export default function CommentSection({
       {/* 댓글 목록 */}
       <div className="space-y-3 mb-4">
         {comments.length === 0 ? (
-          <p className="text-sm text-text-secondary text-center py-2">
+          <p className="text-base text-text-secondary text-center py-2">
             첫 댓글을 남겨보세요!
           </p>
         ) : (
           comments.map((comment) => (
             <div
               key={comment.id}
-              className="bg-gray-50 rounded-lg p-3 text-sm"
+              className="bg-gray-50 rounded-lg p-3 text-base"
             >
               <div className="flex items-center gap-2 mb-1">
-                <span className="font-medium text-text-primary text-xs">
+                <span className="font-semibold text-text-primary text-sm">
                   {comment.nickname}
                 </span>
-                <span className="text-text-secondary text-xs">
+                <span className="text-text-secondary text-sm">
                   {formatTimeAgo(comment.created_at)}
                 </span>
               </div>
-              <p className="text-text-primary">{comment.content}</p>
+              <p className="text-text-primary text-base">{comment.content}</p>
             </div>
           ))
         )}
@@ -117,21 +117,21 @@ export default function CommentSection({
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
           placeholder="댓글을 입력하세요..."
-          className="w-full p-3 border border-gray-200 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
+          className="w-full p-3 border border-gray-200 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-base"
           rows={2}
           maxLength={500}
         />
         {error && (
-          <p className="text-xs text-red-600">{error}</p>
+          <p className="text-sm text-red-600">{error}</p>
         )}
         <div className="flex items-center justify-between">
-          <span className="text-xs text-text-secondary">
+          <span className="text-sm text-text-secondary">
             {newComment.length} / 500
           </span>
           <button
             type="submit"
             disabled={isSubmitting || newComment.trim().length < 2}
-            className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+            className={`px-4 py-1.5 rounded-lg text-base font-semibold transition-colors ${
               isSubmitting || newComment.trim().length < 2
                 ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
                 : 'bg-primary text-white hover:bg-primary-accent'

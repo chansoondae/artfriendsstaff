@@ -32,7 +32,7 @@ export default function OpinionList({
     const isNowLiked = toggleLikedOpinion(opinionId);
 
     // Debug log to verify client-side like trigger
-    console.log('[Like] sending request', { opinionId, tempUserId, isNowLiked });
+    // console.log('[Like] sending request', { opinionId, tempUserId, isNowLiked });
 
     // 즉시 UI 업데이트 (낙관적 업데이트)
     setLikedOpinions(getLikedOpinions());
@@ -52,19 +52,19 @@ export default function OpinionList({
       });
 
       // Debug response logging
-      try {
-        const debugBody = await response.clone().json();
-        console.log('[Like] response', {
-          status: response.status,
-          ok: response.ok,
-          body: debugBody,
-        });
-      } catch {
-        console.log('[Like] response (no json)', {
-          status: response.status,
-          ok: response.ok,
-        });
-      }
+      // try {
+      //   const debugBody = await response.clone().json();
+      //   console.log('[Like] response', {
+      //     status: response.status,
+      //     ok: response.ok,
+      //     body: debugBody,
+      //   });
+      // } catch {
+      //   console.log('[Like] response (no json)', {
+      //     status: response.status,
+      //     ok: response.ok,
+      //   });
+      // }
 
       if (!response.ok) {
         // 에러 시 롤백

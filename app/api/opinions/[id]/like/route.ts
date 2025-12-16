@@ -12,10 +12,10 @@ export async function POST(
     const { temp_user_id } = body;
 
     // Debug log to verify server receives like requests
-    console.log('[API] /opinions/:id/like POST', {
-      opinionId: id,
-      temp_user_id,
-    });
+    // console.log('[API] /opinions/:id/like POST', {
+    //   opinionId: id,
+    //   temp_user_id,
+    // });
 
     if (!temp_user_id) {
       return NextResponse.json(

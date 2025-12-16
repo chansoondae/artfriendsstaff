@@ -45,15 +45,15 @@ export default function OpinionCard({
   return (
     <div className="bg-white rounded-2xl p-4 sm:p-5 border-l-4 border-primary shadow-sm hover:shadow-md transition-shadow duration-200">
       <div className="flex items-center gap-2 mb-3">
-        <span className="text-base font-bold text-text-primary">
+        <span className="text-lg font-bold text-text-primary">
           {opinion.nickname}
         </span>
-        <span className="text-xs text-text-secondary">
+        <span className="text-sm text-text-secondary">
           {formatTimeAgo(opinion.created_at)}
         </span>
       </div>
 
-      <p className="text-text-primary text-sm sm:text-base leading-relaxed whitespace-pre-wrap mb-4">
+      <p className="text-text-primary text-base sm:text-lg leading-relaxed whitespace-pre-wrap mb-4">
         {opinion.content}
       </p>
 
@@ -68,12 +68,12 @@ export default function OpinionCard({
           }`}
         >
           <span className="text-lg">{isLiked ? '💗' : '🤍'}</span>
-          <span className="text-sm font-medium">{opinion.likes}</span>
+          <span className="text-base font-semibold">{opinion.likes}</span>
         </button>
 
         <div className="flex items-center gap-1.5 text-text-secondary">
           <span className="text-lg">💬</span>
-          <span className="text-sm font-medium">{commentCount}</span>
+          <span className="text-base font-semibold">{commentCount}</span>
         </div>
       </div>
 
