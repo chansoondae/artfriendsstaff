@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import OpinionList from '@/components/OpinionList';
 import FloatingWriteButton from '@/components/FloatingWriteButton';
 import WriteModal from '@/components/WriteModal';
+import ClosedModal from '@/components/ClosedModal';
 import type { Opinion, Stats } from '@/types';
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
   const [isWriteModalOpen, setIsWriteModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [showToast, setShowToast] = useState(false);
+  const [isClosedModalOpen, setIsClosedModalOpen] = useState(true);
 
   const fetchOpinions = async () => {
     try {
@@ -94,8 +96,8 @@ export default function Home() {
         )}
       </div>
 
-      {/* Floating Write Button */}
-      <FloatingWriteButton onClick={() => setIsWriteModalOpen(true)} />
+      {/* Floating Write Button - Disabled when closed */}
+      {/* <FloatingWriteButton onClick={() => setIsWriteModalOpen(true)} /> */}
 
       {/* Write Modal */}
       <WriteModal
@@ -110,6 +112,12 @@ export default function Home() {
           의견이 등록되었어요!
         </div>
       )}
+
+      {/* Closed Modal */}
+      <ClosedModal
+        isOpen={isClosedModalOpen}
+        onClose={() => setIsClosedModalOpen(false)}
+      />
     </main>
   );
 }

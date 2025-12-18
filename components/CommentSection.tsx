@@ -111,8 +111,8 @@ export default function CommentSection({
         )}
       </div>
 
-      {/* 댓글 작성 폼 */}
-      <form onSubmit={handleSubmit} className="space-y-2">
+      {/* 댓글 작성 폼 - 종료되어 비활성화됨 */}
+      {/* <form onSubmit={handleSubmit} className="space-y-2">
         <textarea
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
@@ -140,7 +140,12 @@ export default function CommentSection({
             {isSubmitting ? '등록 중...' : '댓글 등록'}
           </button>
         </div>
-      </form>
+      </form> */}
+      <div className="bg-gray-100 border border-gray-200 rounded-lg p-4 text-center">
+        <p className="text-base text-text-secondary">
+          의견 수렴이 종료되어 더 이상 댓글을 작성할 수 없습니다.
+        </p>
+      </div>
     </div>
   );
 }
